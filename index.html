@@ -6,12 +6,36 @@
     <title>스와이프 갤러리</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    
+
     <!-- CDN 파일 / 단순히 파일을 연결만 하는 파일, Use Swiper from CDN 복사 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 <body>
-    
+    <main>
+        <section class="swiper-wrapper">
+            <article class="swiper-slide">1</article>
+            <article class="swiper-slide">2</article>
+            <article class="swiper-slide">3</article>
+            <article class="swiper-slide">4</article>
+            <article class="swiper-slide">5</article>
+        </section>
+    </main>
+
+    <script>
+        const swiper = new Swiper("main", {
+            /* 기본적으로 속도 단위는 ms, 1000ms = 1초 */
+            speed: 500, // 스와이프시 넘어가는 패널 속도
+            loop: true,  // 옵션값 구분할 때에는 콤마기호를 사용함, 스와이프를 순환
+            direction: "horizontal",  // 가로(horizontal) 세로(vercital) 스와이프 방향
+            grabCursor: true, // 마우스 포인터가 손바닥으로 변경됨 + 클릭하고 드래그했을 때 손바닥이 움켜쥐는 포즈가 잡힘.
+            slidesPerView: "auto", // 숫자 (해당갯수단위로 패널 보임), "auto": 100%, 특정 크기를 지정
+            spaceBetween: 30, // 패널사이 간격 (px)
+            centeredSlides: true // 기본값은 false, 활성화 패널을항상 가로 가운데 배치
+
+        }); // 기본적인 스와이퍼 연결법, 괄호 안은 main태그를 집어넣는다.
+        /* 주석문은 sass와 똑같다. */
+    </script>
 </body>
+<!-- api호출 부분은 body 아래에 입력하는 게 좋음. body아래에 있는 요소를 제어하는 것을 제어하는 것. 아직 내용에도 없는 부분을 제어하려하다보면 에러가 발생할 수 있음. -->
 </html>
