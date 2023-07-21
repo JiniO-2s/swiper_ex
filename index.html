@@ -12,15 +12,69 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </head>
 <body>
+    <h1>DCODELAB</h1>
     <main>
-        <section class="swiper-wrapper">
-            <article class="swiper-slide">1</article>
-            <article class="swiper-slide">2</article>
-            <article class="swiper-slide">3</article>
-            <article class="swiper-slide">4</article>
-            <article class="swiper-slide">5</article>
+        <section class="swiper-wrapper"><!-- 스크립트가 있으면 안 쪽의 ui가 깨져보일 수 있음. -->
+            <article class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="img/pic1.png" alt="pic1">
+                        <h2>Lorem ipsum dolor sit.</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, tenetur!</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="img/pic2.png" alt="pic2">
+                        <h2>Veritatis ratione rem quod.</h2>
+                        <p>Earum dolorum a nulla adipisci? Dolorum hic modi commodi assumenda!</p>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="img/pic3.png" alt="pic3">
+                        <h2>Possimus porro distinctio culpa.</h2>
+                        <p>Nisi, expedita ad! Officia tempora hic, at voluptates laboriosam consequatur?</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="img/pic4.png" alt="pic4">
+                        <h2>Repudiandae ipsa sint sunt!</h2>
+                        <p>Corrupti nostrum explicabo quasi. Accusantium qui exercitationem beatae itaque assumenda.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="swiper-slide">
+                <div class="inner">
+                    <div class="con">
+                        <img src="img/pic5.png" alt="pic5">
+                        <h2>Cumque quibusdam magnam nobis!</h2>
+                        <p>Sequi earum quibusdam blanditiis minima accusantium molestiae ad alias laborum?</p>
+                    </div>
+                </div>
+            </article>
         </section>
+
+        <nav class="swiper-pagination"></nav>
+
+        <nav class="swiper-button-prev navi"></nav>
+        <nav class="swiper-button-next navi"></nav>
     </main>
+
+    <footer>
+        2022 DOCDELAB &copy; ALL RIGHTS RESERVED.
+    </footer>
 
     <script>
         const swiper = new Swiper("main", {
@@ -29,9 +83,28 @@
             loop: true,  // 옵션값 구분할 때에는 콤마기호를 사용함, 스와이프를 순환
             direction: "horizontal",  // 가로(horizontal) 세로(vercital) 스와이프 방향
             grabCursor: true, // 마우스 포인터가 손바닥으로 변경됨 + 클릭하고 드래그했을 때 손바닥이 움켜쥐는 포즈가 잡힘.
+            
             slidesPerView: "auto", // 숫자 (해당갯수단위로 패널 보임), "auto": 100%, 특정 크기를 지정
             spaceBetween: 30, // 패널사이 간격 (px)
-            centeredSlides: true // 기본값은 false, 활성화 패널을항상 가로 가운데 배치
+            centeredSlides: true, // 기본값은 false, 활성화 패널을항상 가로 가운데 배치
+
+            pagination: {
+                el: ".swiper-pagination", //페이지네이션 버튼 추가(bullet)
+                // clickable: true // 페이지버튼을 클릭할 수 있게 함, 클릭가능여부 설정
+                type: "fraction"
+            }, 
+            navigation: {
+                prevEl: ".swiper-button-prev",
+                nextEl: ".swiper-button-next"
+            },
+
+            effect: "coverflow",
+            coverflowEffect: {
+                rotate: 50, // y축 회정값
+                stretch: -100, // 값이 커질 수록 당겨짐, (-)값을 줄 수록 멀어짐. 당겨진 정도
+                depth: 400, // 입체적인 왜곡효과 정도
+                slideShadows: false, // 패널의 그림자 설정, false는 그림자가 없음.
+            }
 
         }); // 기본적인 스와이퍼 연결법, 괄호 안은 main태그를 집어넣는다.
         /* 주석문은 sass와 똑같다. */
